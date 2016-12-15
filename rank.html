@@ -14,7 +14,7 @@
     <![endif]-->
 
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.0/angular.min.js"></script>
-    <script src="javascripts/random.js"></script>
+    <script src="javascripts/rank.js"></script>
 
 
     <title>Draw by nicolaferraro</title>
@@ -40,20 +40,26 @@
 
           <p>
             This project has been created just to generate random tournament draws.
-            This is a random draw generator, for the one based on ranks <a href="rank.html">click here</a>.
           </p>
 
           <div ng-controller="DrawController">
 
             <h2>
-              Teams
+              Ranks
             </h2>
-            <p>Put here your teams (one team per line)</p>
-            <textarea ng-model="teamText" cols="60" rows="12"></textarea>
+            <p>Put here your teams divided by rank (one team per line)</p>
 
-            <p>Ho many groups?</p>
+            <div ng-repeat="rank in ranks">
+              <p>
+                Rank {{rank.rank}}:
+              </p>
+              <p>
+                <textarea ng-model="rank.text" cols="40" rows="7"></textarea>
+              </p>
+            </div>
+
             <p>
-              <input type="text" ng-model="numGroups"/>
+              <button ng-click="newRank()">New Rank</button>
             </p>
 
             <hr/>

@@ -2,16 +2,13 @@
 angular.module('Draw', [])
     .controller('DrawController', function($scope) {
 
-        $scope.totalRanks = 4;
         $scope.ranks = [{
             rank: 1
         }, {
             rank: 2
-        }, {
-            rank: 3
-        }, {
-            rank: 4
         }];
+
+        $scope.totalRanks = $scope.ranks.length;
 
         $scope.newRank = function() {
             $scope.totalRanks++;
@@ -73,6 +70,10 @@ angular.module('Draw', [])
 
             $scope.groups = groups;
 
+        };
+
+        $scope.clear = function() {
+            $scope.groups = null;
         };
 
         $scope.groupName = function(pos) {
